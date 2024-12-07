@@ -97,3 +97,37 @@ After the above procedure, you will have 2 go folders. 📁
 
 Both directories serve different purposes and are needed for Go development. The `/usr/local/go` is where the Go toolchain lives, while `$/go` is where your projects and third-party packages will be stored by default.
 
+# Go Module 🦸🏽‍♂️
+
+A Go module is a collection of related Go packages that are versioned together as a single unit. It includes:
+
+- A collection of Go source files in a directory 📁
+- A go.mod file at the root 🫚
+- Defines the module's properties, dependencies, and versioning
+- Enables dependency management and versioning
+
+### `go.mod` file ☝🏽
+
+The primary module definition file that contains important metadata about your project including:
+
+- Declares the module path (module name)
+- Lists all direct and indirect dependencies
+- Specifies the Go version being used
+- Controls dependency versions
+
+### `go.sum` file 🥸
+
+A verification file that:
+
+- Contains cryptographic hashes of module dependencies
+- Ensures reproducible builds
+- Verifies integrity of each dependency
+
+Important commands:
+
+```bash
+go mod init     # Initialize a new module
+go mod tidy     # Add missing and remove unused dependencies
+go mod verify   # Verify dependencies
+go mod download # Download modules to local cache
+```
