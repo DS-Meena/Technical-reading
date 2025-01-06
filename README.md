@@ -20,11 +20,13 @@ Nonetheless, even if a pull request can't be small, it can still be focused 🤔
 
 # Capture
 
-Google style guides - [Google style guide](https://google.github.io/styleguide/)
-
-
 ## Important Links
 
 1. [Abseil](https://abseil.io/tips/) C++ Tips
 2. [Tech on the toilet](https://testing.googleblog.com/) for tech tips and [outside google](https://testing.googleblog.com/search/label/TotT). You can also search related topics.
 3. [Google Engineering Practices](https://google.github.io/eng-practices/) for CL related tips.
+4. [Google style guide](https://google.github.io/styleguide/)
+
+Some other blogs:
+
+1. [Martin Fowler](https://martinfowler.com/) - Read about Architecture, Refactoring, Agile, microservices, etc. 
