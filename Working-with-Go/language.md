@@ -74,3 +74,67 @@ func increment() {
 ```
 
 This is how you can handle concurrent operations to achieve parallel consistency. 
+
+## CORS (Cross-Origin Resource Sharing) 🌐
+
+By default, web browsers don't let websites talk to each other for security reasons. It's like having a protective fence between them. CORS is like a special permission slip that lets these websites communicate safely.
+
+It's a mechanism that allows web applications running at one origin to access resources from a different origin
+
+Imagine you have two different websites:
+
+- 🏠 Your website (let's say it's at [mywebsite.com](http://mywebsite.com))
+- 🏢 Another website (like [api.coolstuff.com](http://api.coolstuff.com)) that has data you want to use
+
+```mermaid
+sequenceDiagram
+    participant W as Website 🏠
+    participant S as Server 🏢
+    W->>S: OPTIONS request (Can I talk to you?)
+    Note right of S: Checks CORS settings
+    S->>W: Yes! Here are the rules
+    W->>S: Actual request (GET/POST)
+    S->>W: Here's your data!
+```
+
+Here's what happens:
+
+1. First, your website asks "Hey, can I talk to you?" (This is the OPTIONS request)
+2. The other website checks if you're allowed (by looking at the CORS settings)
+3. If you're allowed, it says "Yes!" and sends back special headers
+4. Then your actual request (like getting data) can happen
+
+Here comes the Golang code example, **this you might have seen in your company projects** 🧑‍🎤.
+
+```go
+http.HandleFunc("/api/data", func(w http.ResponseWriter, r *http.Request) {
+    
+    // Enable CORS for all origins
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+    // Handle preflight OPTIONS request
+    if r.Method == "OPTIONS" {
+        w.WriteHeader(http.StatusOK)
+        return
+    }
+
+    // Handle actual request
+    if r.Method == "GET" {
+        data := map[string]string{
+            "message": "Good",
+        }
+        json.NewEncoder(w).Encode(data)
+        return
+    }
+})
+```
+
+In the above code, for the specific API i'm allowing cross origin requets for specific methods only.
+
+- Handles preflight OPTIONS requests
+- Sets appropriate CORS headers
+- Processes GET requests
+- Returns JSON data
+

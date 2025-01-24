@@ -26,7 +26,5 @@ Nonetheless, even if a pull request can't be small, it can still be focused 🤔
 2. [Tech on the toilet](https://testing.googleblog.com/) for tech tips and [outside google](https://testing.googleblog.com/search/label/TotT). You can also search related topics.
 3. [Google Engineering Practices](https://google.github.io/eng-practices/) for CL related tips.
 4. [Google style guide](https://google.github.io/styleguide/)
-
-Some other blogs:
-
-1. [Martin Fowler](https://martinfowler.com/) - Read about Architecture, Refactoring, Agile, microservices, etc. 
+5. [Martin Fowler](https://martinfowler.com/) - Read about Architecture, Refactoring, Agile, microservices, etc. 
+6. [ByteByteGo Newsletter](https://blog.bytebytego.com/) - Low level design and high level design concepts.

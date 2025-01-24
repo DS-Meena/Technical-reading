@@ -7,24 +7,33 @@ The test pyramid is the canonical heuristic (authoritative rule-of-thumb 👍) f
 *Fig: Test Pyramid*
 
 The SMURF 👲 mnemonic is an esay way to remember the tradeoffs to consider when balancing your test suite:
-- **Speed 🚄**: Unit tests are faster than other test types and can be run more often --you'll catch problems sooner.
-- **Maintainability ⛏️**: The aggregated cost of debugging and maintaining tests (of all types) adds up quickly.
-- **Utilization 🤑**: Tests that use fewer resources (memory, disk, CPU) cost less to run.
-- **Reliability 😅**: Reliable tests only fail when an actual problem has been discovered.
-- **Fidelity 😇**: High-fidelity tests come closer to approximating real operating conditions (e.g., real database or traffic loads) and better predict the behavior of our producting systems.
+
+1. Speed
+2. Maintainability
+3. Utilization
+4. Reliability
+5. Fidelity
 
 ![Test type vs Test property](unnamed-1.png)
-
 *Fig: A radar chart of Test Type vs. Test Property (i.e. SMURF). Farther from center is better.*
 
 In many cases, the relationships between the SMURF dimensions are in tension: improving one dimension can affect the others. However, if you can improve one or more dimensions of a test without harming the others, then you should do so.
 
-## Overusing Mocks
+- **Speed 🚄**: Unit tests are faster than other test types and can be run more often --you'll catch problems sooner.
+- **Maintainability ⛏️**: The aggregated cost of debugging and maintaining tests (of all types) adds up quickly.
+- **Utilization 🤑**: Tests that use fewer resources (memory, disk, CPU) cost less to run.
+- **Reliability 😅**: Reliable tests only fail when an actual problem has been discovered.
 
-Overusing mocks can cause several problems:
-- Tests can be harder to understand.
-- Tests can be harder to maintain.
-- Tests can provide less assurance that your code is working properly.
+## 5. Fidelity 😇
+
+The fidelity of a test refers to how closely the behavior of the test resembles the behavior of the production code.
+A test with higher fidelity gives you higher confidence that your code will work properly.
+
+When specifying a dependency to use in a test, prefer the highest-fidelity option. 
+
+1. Try to use the real implementation
+2. Use a fake if you can't use the real implementation.
+3. Use a mock if you can't use the real implementation or a fake.
 
 Sometimes you can't use a real dependency in a test (e.g. if it's too slow or talks over the network), but there may better options than using mocks, such as a **hermetic local server** (e.g. a credit card server that you start up on your machine specifically for the test) or a **fake implementation** (e.g. an in-memory credit card server).
 
