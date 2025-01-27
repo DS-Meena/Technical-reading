@@ -188,7 +188,7 @@ http.HandleFunc("/api/data", func(w http.ResponseWriter, r *http.Request) {
 })
 ```
 
-In the above code, for the specific API i'm allowing cross origin requets for specific methods only.
+In the above code, for the specific API i'm allowing cross origin requets for specific methods and specific headers only.
 
 - Handles preflight OPTIONS requests
 - Sets appropriate CORS headers
